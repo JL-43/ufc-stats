@@ -60,5 +60,5 @@ def clean_fighter_data(df: DataFrame) -> DataFrame:
 
 if __name__ == "__main__":
     bronze_df = pd.read_csv("../output/1_ufc_fighters_scraped.csv")
-    cleansed_df = clean_fighter_data(bronze_df)
-    cleansed_df.to_csv("../output/2_ufc_fighters_cleaned.csv", index=False)
+    silver_df = clean_fighter_data(bronze_df)
+    silver_df.to_csv("../output/2_ufc_fighters_cleaned.csv", index=False)
