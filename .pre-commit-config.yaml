@@ -18,3 +18,7 @@ repos:
     rev: v0.910
     hooks:
       - id: mypy
+  - repo: https://github.com/jackdewinter/pymarkdown
+    rev: main
+    hooks:
+      - id: pymarkdown
