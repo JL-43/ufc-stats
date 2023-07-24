@@ -1,6 +1,0 @@
-{
-    "MD001": true,  // This rule checks for inconsistent heading levels
-    "MD002": true,  // This rule checks for first heading levels
-    "MD003": true,  // This rule checks for heading style
-    "MD004": true,  // This rule checks for list style
-}
