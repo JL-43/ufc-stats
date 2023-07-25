@@ -1,6 +1,20 @@
-# 2_clean_ufc_data.py
-import pandas as pd
-from pandas import DataFrame
+# # 2_clean_ufc_data.py
+# import pandas as pd
+# from pandas import DataFrame
+
+import pyspark.pandas as ps
+from pyspark.pandas import DataFrame
+import pyspark
+from delta import configure_spark_with_delta_pip
+
+builder = (
+    pyspark.sql.SparkSession.builder.appName("silver_clean_ufc_data")
+    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
+    .config(
+        "spark.sql.catalog.spark_catalog",
+        "org.apache.spark.sql.delta.catalog.DeltaCatalog",
+    )
+)
 
 
 def convert_height_in_feet_string_to_cm_double(height_in_feet: str) -> float:
@@ -59,6 +73,6 @@ def clean_fighter_data(df: DataFrame) -> DataFrame:
 
 
 if __name__ == "__main__":
-    bronze_df: DataFrame = pd.read_csv("../output/1_ufc_fighters_scraped.csv")
+    bronze_df: DataFrame = ps.read_csv("../output/1_ufc_fighters_scraped.csv")
     silver_df: DataFrame = clean_fighter_data(bronze_df)
     silver_df.to_csv("../output/2_ufc_fighters_cleaned.csv", index=False)

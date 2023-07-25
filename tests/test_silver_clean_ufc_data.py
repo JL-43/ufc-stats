@@ -1,7 +1,21 @@
-# test_silver_clean_ufc_data.py
-import pytest
-import pandas as pd
+## test_silver_clean_ufc_data.py
+# import pandas as pd
+
+import pyspark.pandas as ps
+from pyspark.pandas import DataFrame
+import pyspark
+from delta import configure_spark_with_delta_pip
 from src import silver_clean_ufc_data as clean_data
+import pytest
+
+builder = (
+    pyspark.sql.SparkSession.builder.appName("test_silver_clean_ufc_data")
+    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension")
+    .config(
+        "spark.sql.catalog.spark_catalog",
+        "org.apache.spark.sql.delta.catalog.DeltaCatalog",
+    )
+)
 
 
 def test_convert_height_in_feet_string_to_cm_double():
