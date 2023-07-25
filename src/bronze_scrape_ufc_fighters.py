@@ -11,6 +11,6 @@ def scrape_fighter_data(url: str) -> DataFrame:
 
 
 if __name__ == "__main__":
-    ufc_stats_url = "http://ufcstats.com/statistics/fighters?char=*&page=all"
-    bronze_df = scrape_fighter_data(ufc_stats_url)
+    ufc_stats_url: str = "http://ufcstats.com/statistics/fighters?char=*&page=all"
+    bronze_df: DataFrame = scrape_fighter_data(ufc_stats_url)
     bronze_df.to_csv("../output/2_ufc_fighters_cleaned.csv", index=False)
