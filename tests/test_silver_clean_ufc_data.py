@@ -17,6 +17,8 @@ builder = (
     )
 )
 
+spark = configure_spark_with_delta_pip(builder).getOrCreate()
+
 
 def test_convert_height_in_feet_string_to_cm_double():
     # Test a normal case

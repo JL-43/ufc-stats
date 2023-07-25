@@ -17,6 +17,8 @@ builder = (
     )
 )
 
+spark = configure_spark_with_delta_pip(builder).getOrCreate()
+
 
 def test_scrape_fighter_data():
     url: str = "http://ufcstats.com/statistics/fighters?char=a&page=all"

@@ -31,8 +31,7 @@ if __name__ == "__main__":
     bronze_df: DataFrame = scrape_fighter_data(ufc_stats_url)
     bronze_df.to_delta("../output/1_ufc_fighters_scraped", index=False)
 
-    read_df: DataFrame = ps.read_delta("../output/1_ufc_fighters_scraped")
-
+    # read_df: DataFrame = ps.read_delta("../output/1_ufc_fighters_scraped")
     # print(read_df.head())
 
 
