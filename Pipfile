@@ -9,6 +9,10 @@ black = "*"
 isort = "*"
 mypy = "*"
 pytest = "*"
+pyspark = "*"
+pandas = "*"
+pyarrow = "*"
+delta = "*"
 
 [dev-packages]
 ipykernel = "*"
