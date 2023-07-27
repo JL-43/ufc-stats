@@ -80,7 +80,8 @@ if __name__ == "__main__":
     bronze_df: DataFrame = ps.read_delta("../output/1_ufc_fighters_scraped")
     silver_df: DataFrame = clean_fighter_data(bronze_df)
     # silver_df.to_csv("../output/2_ufc_fighters_cleaned.csv", index=False)
-    silver_df.to_delta("../output/2_ufc_fighters_cleaned", index=False)
+    silver_df.to_delta("../output/2_ufc_fighters_cleaned")
 
-    # read_df: DataFrame = ps.read_delta("../output/2_ufc_fighters_cleaned")
-    # print(read_df.head())
+    read_df: DataFrame = ps.read_delta("../output/2_ufc_fighters_cleaned")
+    print(read_df.head())
+    spark.stop()

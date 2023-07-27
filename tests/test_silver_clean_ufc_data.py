@@ -40,3 +40,6 @@ def test_convert_height_in_feet_string_to_cm_double():
     assert actual_height_in_cm == pytest.approx(
         expected_height_in_cm
     ), "Conversion of height in feet to cm failed for corner case"
+
+
+spark.stop()

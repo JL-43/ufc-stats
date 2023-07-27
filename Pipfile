@@ -12,7 +12,9 @@ pytest = "*"
 pyspark = "*"
 pandas = "*"
 pyarrow = "*"
+delta-spark = "*"
 delta = "*"
+spark = "*"
 
 [dev-packages]
 ipykernel = "*"

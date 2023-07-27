@@ -25,3 +25,6 @@ def test_scrape_fighter_data():
     df: DataFrame = bronze_scrape_ufc_fighters.scrape_fighter_data(url)
     assert isinstance(df, ps.DataFrame)
     assert len(df) > 0
+
+
+spark.stop()

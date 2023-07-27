@@ -29,7 +29,9 @@ def scrape_fighter_data(url: str) -> DataFrame:
 if __name__ == "__main__":
     ufc_stats_url: str = "http://ufcstats.com/statistics/fighters?char=*&page=all"
     bronze_df: DataFrame = scrape_fighter_data(ufc_stats_url)
-    bronze_df.to_delta("../output/1_ufc_fighters_scraped", index=False)
+    bronze_df.to_delta("../output/1_ufc_fighters_scraped")
+
+    spark.stop()
 
     # read_df: DataFrame = ps.read_delta("../output/1_ufc_fighters_scraped")
     # print(read_df.head())
