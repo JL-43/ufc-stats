@@ -5,7 +5,10 @@
 import pyspark.pandas as ps
 from pyspark.pandas import DataFrame
 import pyspark
-from delta import configure_spark_with_delta_pip
+
+# from delta import configure_spark_with_delta_pip
+from delta.pip_utils import configure_spark_with_delta_pip
+
 from src import bronze_scrape_ufc_fighters
 
 builder = (
